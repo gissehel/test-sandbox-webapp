@@ -5,7 +5,7 @@
       page: {
         window: this,
         init: function() {
-          var $info1, $info2, $tag1, $tag2;
+          var $info1, $info2, $tag1, $tag2, newinfo_click, newtag_click;
           this.builder = this.window.testlib.builder;
           this.$workspace = this.builder.mkobj('workspace', {
             parent: 'body'
@@ -42,12 +42,25 @@
             type: 'input',
             classes: ['newitem']
           });
-          this.$newtag_close = this.builder.mkobj('newtag-close', {
+          this.$newtag_go = this.builder.mkobj('newtag-go', {
             parent: this.$newtagzone,
             outter: true,
             text: '\u25b6',
-            classes: ['newitem-close', 'close', 'icon']
+            classes: ['newitem-go', 'icon-go', 'icon']
           });
+          newtag_click = __bind(function(e) {
+            var val;
+            val = this.$newtag.val();
+            if (val !== '') {
+              this.create_tag({
+                text: val
+              });
+              this.$newtag.val('');
+            }
+            return e.preventDefault();
+          }, this);
+          this.$newtag_go.click(newtag_click);
+          this.$newtagzone.submit(newtag_click);
           this.$infozonecontent = this.builder.mkobj('infozonecontent', {
             parent: this.$infozone,
             outter: true,
@@ -65,12 +78,25 @@
             type: 'input',
             classes: ['newitem']
           });
-          this.$newinfo_close = this.builder.mkobj('newinfo-close', {
+          this.$newinfo_go = this.builder.mkobj('newinfo-go', {
             parent: this.$newinfozone,
             outter: true,
             text: '\u25b6',
-            classes: ['newitem-close', 'close', 'icon']
+            classes: ['newitem-go', 'icon-go', 'icon']
           });
+          newinfo_click = __bind(function(e) {
+            var val;
+            val = this.$newinfo.val();
+            if (val !== '') {
+              this.create_info({
+                text: val
+              });
+              this.$newinfo.val('');
+            }
+            return e.preventDefault();
+          }, this);
+          this.$newinfo_go.click(newinfo_click);
+          this.$newinfozone.submit(newinfo_click);
           $tag1 = this.create_tag({
             text: 'Tag1'
           });
@@ -120,7 +146,7 @@
             parent: $tag,
             outter: true,
             text: '\u2716',
-            classes: ['item-close', 'close', 'icon']
+            classes: ['item-close', 'icon-close', 'icon']
           });
           $tag.change_text = __bind(function(text) {
             return $tag_content.text(text);
@@ -147,19 +173,19 @@
             parent: $info,
             outter: true,
             text: '\u25b2',
-            classes: ['item-fold', 'fold', 'icon']
+            classes: ['item-fold', 'icon-fold', 'icon']
           });
           $info_unfold = this.builder.mkobj('info-unfold', {
             parent: $info,
             outter: true,
             text: '\u25bc',
-            classes: ['item-unfold', 'unfold', 'icon']
+            classes: ['item-unfold', 'icon-unfold', 'icon']
           });
           $info_close = this.builder.mkobj('info-close', {
             parent: $info,
             outter: true,
             text: '\u2716',
-            classes: ['item-close', 'close', 'icon']
+            classes: ['item-close', 'icon-close', 'icon']
           });
           $info_outter = $info.parent();
           $info_fold.click(__bind(function(e) {

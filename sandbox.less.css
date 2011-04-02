@@ -72,7 +72,7 @@ body {
 .tagzone-outter .icon-outter {
   background: #cc6d00;
 }
-.tagzone-outter .icon-outter .newitem-close {
+.tagzone-outter .icon-outter .newitem-go {
   color: #ffb866;
 }
 .tagzonecontent-outter, .infozonecontent-outter {
@@ -128,7 +128,7 @@ input.newitem {
   -wekbit-user-select: none;
   cursor: pointer;
 }
-.newitem-close-outter {
+.newitem-go-outter {
   position: absolute;
   height: 20px;
   top: 6px;
@@ -181,7 +181,7 @@ input.newitem {
 .infozone-outter .icon-outter {
   background: #006dcc;
 }
-.infozone-outter .icon-outter .newitem-close {
+.infozone-outter .icon-outter .newitem-go {
   color: #66b8ff;
 }
 .headerzone-outter {
@@ -224,7 +224,7 @@ input.newitem {
 .headerzone-outter .icon-outter {
   background: #6d00cc;
 }
-.headerzone-outter .icon-outter .newitem-close {
+.headerzone-outter .icon-outter .newitem-go {
   color: #b866ff;
 }
 .item-outter {
