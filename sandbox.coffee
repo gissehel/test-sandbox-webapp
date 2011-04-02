@@ -41,9 +41,8 @@
                 $tag = @builder.mkobj 'tag', parent: @$tagzonecontent, outter: true, classes : ['item']
                 $tag_content = @builder.mkobj 'tag-content', parent: $tag, outter: true, text: args.text, classes : ['item-content']
                 $tag_close = @builder.mkobj 'tag-close', parent: $tag, outter: true, text: '\u2716', classes : ['item-close','close','icon']
-                $tag.change_text = (text) =>
-                    $tag_content.text text
-                
+                $tag.change_text = (text) => $tag_content.text text
+
                 return $tag
 
             create_info : (args) ->

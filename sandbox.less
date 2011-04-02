@@ -4,6 +4,10 @@
 @red: #8800ff;
 @hot: #ff0088;
 @orange: #ff8800;
+@green: #22cc22;
+
+@tag_color: @orange;
+@info_color: @blue;
 
 @header_height: 68*2px;
 @barleft_width: 68*3px;
@@ -116,7 +120,7 @@ body {
 }
 
 .tagzone-outter {
-    .mainzone-outter-background(@hot);
+    .mainzone-outter-background(@tag_color);
 
     left: @space_zone;
     width: @barleft_width;
@@ -196,7 +200,7 @@ input.newitem {
 
 
 .infozone-outter {
-    .mainzone-outter-background(@blue);
+    .mainzone-outter-background(@info_color);
 
     left: @barleft_width+@space_zone*2;
     right: @space_zone;
