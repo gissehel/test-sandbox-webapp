@@ -21,7 +21,6 @@ body {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   -o-border-radius: 25px;
-  -ms-border-radius: 25px;
   border-radius: 25px;
 }
 .mainzonecontent-outter {
@@ -29,7 +28,6 @@ body {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   -o-border-radius: 15px;
-  -ms-border-radius: 15px;
   border-radius: 15px;
 }
 .tagzone-outter {
@@ -90,7 +88,6 @@ body {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   -o-border-radius: 15px;
-  -ms-border-radius: 15px;
   border-radius: 15px;
 }
 .newitemzone {
@@ -115,7 +112,6 @@ input.newitem {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   -o-border-radius: 10px;
-  -ms-border-radius: 10px;
   border-radius: 10px;
 }
 .icon {
@@ -233,7 +229,6 @@ input.newitem {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   -o-border-radius: 15px;
-  -ms-border-radius: 15px;
   border-radius: 15px;
 }
 .item-outter.unfolded {

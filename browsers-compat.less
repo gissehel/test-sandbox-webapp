@@ -1,0 +1,25 @@
+.vert-gradient(@colortop, @colorbottom, @colordefault) {
+    background-color : @colordefault;
+    background-image : -moz-linear-gradient(-90deg, @colortop, @colorbottom);
+    background-image : -webkit-gradient(linear, left top, left bottom,from(@colortop),to(@colorbottom));
+    background-image : -o-linear-gradient(-90deg, @colortop, @colorbottom);
+    background-image : -ms-linear-gradient(-90deg, @colortop, @colorbottom);
+    // filter: e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=") @colortop e(", EndColorStr=") @colorbottom e(", GradientType=0);");
+    background-image : linear-gradient(-90deg, @colortop, @colorbottom);
+}
+
+.vert-gradient(@color) {
+    .vert-gradient(lighten(@color,10%), darken(@color,10%), @color);
+}
+
+.border-radius(@border) {
+    -moz-border-radius : @border;
+    -webkit-border-radius : @border;
+    -o-border-radius : @border;
+    border-radius : @border;
+}
+
+.no-user-select() {
+    -moz-user-select : none;
+    -wekbit-user-select : none;
+}
