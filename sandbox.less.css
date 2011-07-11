@@ -137,6 +137,9 @@ input.newitem {
   top: 10px;
   bottom: 10px;
 }
+.mainzonecontent {
+  overflow-y: auto;
+}
 .infozone-outter {
   background-color: #0088ff;
   background-image: -moz-linear-gradient(-90deg, #33a0ff, #006dcc);
