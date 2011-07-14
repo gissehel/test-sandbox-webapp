@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html manifest="cache.manifest">
+<html xmanifest="cache.manifest">
 <head>
-    <script src='jquery.min.js' type='text/javascript'></script>
+    <title></title>
     <link  href='sandbox.less.css' type='text/css' rel='stylesheet'>
-    <script src='sandbox.js' type='text/javascript'></script>
+    <script src='head.min.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+        head.js(
+            'kastagoo.utils.js',
+            'kastagoo.viewmodel.js',
+            'sandbox.viewmodel.js',
+            'jquery.min.js',
+            'kastagoo.view.js',
+            'sandbox.js'
+            );
+    </script>
 </head>
 <body></body>
 </html>
