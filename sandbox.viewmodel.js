@@ -1,13 +1,13 @@
 (function() {
-  var kastagoo, mkclass, testlib, update, window;
-  kastagoo = this.kastagoo = this.kastagoo || {};
+  var kastagoo, mkclass, testlib, update;
+  kastagoo = this.kastagoo = this.kastagoo || require('kastagoo.coffee').kastagoo;
   testlib = this.testlib = this.testlib || {};
   update = kastagoo.utils.update;
   mkclass = kastagoo.utils.mkclass;
-  window = this;
   update(testlib, {
     viewmodel: {
       ItemVM: mkclass(kastagoo.viewmodel.BaseVM, {
+        __name__: 'ItemVM',
         __init__: function(params) {
           this._value = '';
           if (params != null) {
@@ -28,12 +28,13 @@
         }
       }),
       GrutVM: mkclass(kastagoo.viewmodel.BaseVM, {
+        __name__: 'GrutVM',
         __basic_properties__: {
           XData: 'poide',
           ItemList: null
         },
         __init__: function() {
-          this.ItemList(new kastagoo.utils.Collection());
+          this._ItemList = new kastagoo.utils.Collection();
         },
         Validate: function() {
           this.add('[--' + this.XData() + '--]');

@@ -3,5 +3,5 @@
 @cmd /C C:\usr\local\nodejs\bin\coffee.cmd kastagoo.view.coffee
 @cmd /C C:\usr\local\nodejs\bin\coffee.cmd kastagoo.viewmodel.coffee
 @cmd /C C:\usr\local\nodejs\bin\coffee.cmd sandbox.viewmodel.coffee
-@cmd /C C:\usr\local\nodejs\bin\coffee.cmd sandbox.coffee
+@cmd /C C:\usr\local\nodejs\bin\coffee.cmd sandbox.view.coffee
 

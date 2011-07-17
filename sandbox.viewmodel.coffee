@@ -1,15 +1,16 @@
-kastagoo = @kastagoo = @kastagoo || {}
+kastagoo = @kastagoo = @kastagoo || require('kastagoo.coffee').kastagoo
 testlib = @testlib = @testlib || {}
 
 update = kastagoo.utils.update
 mkclass = kastagoo.utils.mkclass
 
-window = @
+# window = @
 
 update testlib,
     viewmodel : 
         ItemVM : 
             mkclass kastagoo.viewmodel.BaseVM,
+                __name__ : 'ItemVM',
                 __init__ : (params) ->
                     @_value = ''
                     if params?
@@ -24,11 +25,13 @@ update testlib,
                 
         GrutVM : 
             mkclass kastagoo.viewmodel.BaseVM,
+                __name__ : 'GrutVM',
                 __basic_properties__ :
                     XData : 'poide'
                     ItemList : null
                 __init__ : () -> 
-                    @ItemList(new kastagoo.utils.Collection())
+                    # @ItemList(new kastagoo.utils.Collection())
+                    @_ItemList = new kastagoo.utils.Collection()
                     return
                 Validate : () ->
                     @add('[--'+@XData()+'--]')

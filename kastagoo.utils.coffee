@@ -2,8 +2,24 @@ kastagoo = @kastagoo = @kastagoo || {}
 
 kastagoo.utils = {}
 
+update = (destination, source) ->
+    for name of source
+        destination[name] = source[name]
+
 mkclass = (parent, dict) ->
     [parent,dict] = [null, parent] if not(dict?)
+    if parent? and parent.__class__?
+        parent = parent.__class__
+    console.log("parent : ["+parent+"]("+(if dict.__name__? then dict.__name__  else dict)+")")
+    
+    if parent?
+        parent_ctor = (() -> return)
+        parent_ctor.prototype = parent
+        new_dict = new parent_ctor()
+        update new_dict, dict
+        dict = new_dict
+        dict.__parent__ = parent
+    
     dict.__init__ = (()->return) unless dict.__init__?
     dict.__classinit__ = (()->return) unless dict.__classinit__?
     
@@ -16,30 +32,32 @@ mkclass = (parent, dict) ->
         parent.__recursive_classinit__.apply(@,arguments) if parent? and parent.__recursive_classinit__?
         dict.__classinit__.apply(@,arguments)
         return
-        
-    
+
     constructor = () ->
         dict.__recursive_init__.apply(@,arguments)
         return
-    dict.__proto__ = parent if parent?
-    constructor.__proto__ = dict
-    constructor.prototype = constructor  
-    constructor.__class__ = dict
+
     
+    constructor.prototype = dict
+    
+    constructor.__class__ = dict
+    dict.__ctor__ = constructor
+    dict.__class__ = dict
     dict.__recursive_classinit__.apply(constructor)
+
     
     return constructor
 
-update = (destination, source) ->
-    for name of source
-        destination[name] = source[name]
+dir = (o) -> res=[]; res.push(x) for x of o; return res
 
 update kastagoo,
     utils :
         mkclass : mkclass
         update : update
+        dir : dir
+        cdir : (o) -> console.log(x) for x in dir(o); return
+        cit : (i) -> console.log(x) for x in i; return
         
-update kastagoo.utils,
         Event : mkclass 
             __name__ : 'Event'
             __init__ : () ->
@@ -67,6 +85,8 @@ update kastagoo.utils,
                         @push(item)
                 return
             isObservable : true
+            length : () ->
+                return @_innerarray.length
             at : (index) ->
                 return @_innerarray[index]
             splice : (index,size) ->

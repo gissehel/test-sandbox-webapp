@@ -1,4 +1,4 @@
-kastagoo = @kastagoo = @kastagoo || {}
+kastagoo = @kastagoo = @kastagoo || require("kastagoo.utils.coffee").kastagoo
 
 update = kastagoo.utils.update
 mkclass = kastagoo.utils.mkclass
@@ -12,9 +12,13 @@ update kastagoo,
                 
             __classinit__ : () ->
                 set_basic_property = (dict,property_name) ->
+                    console.log(" dict[property_name] (property_name=["+property_name+"],dict=["+dict+"])")
                     dict[property_name] = (data) -> dict._basic_property_.call(@,'_'+property_name,property_name,data)
+                console.log(["classinit: on"]);
                 for property_name of @__class__.__basic_properties__
+                    console.log(["classinit - property_name ["+property_name+"]"]);
                     set_basic_property(@__class__,property_name)
+                console.log(["classinit: off"]);
                 return
             __init__ : () ->
                 # console.log(['basevm __init__',this])

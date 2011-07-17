@@ -1,7 +1,7 @@
 (function() {
   var kastagoo, mkclass, update, window;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-  kastagoo = this.kastagoo = this.kastagoo || {};
+  kastagoo = this.kastagoo = this.kastagoo || require("kastagoo.utils.coffee").kastagoo;
   update = kastagoo.utils.update;
   mkclass = kastagoo.utils.mkclass;
   window = this;

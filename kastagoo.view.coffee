@@ -1,4 +1,4 @@
-kastagoo = @kastagoo = @kastagoo || {}
+kastagoo = @kastagoo = @kastagoo || require("kastagoo.utils.coffee").kastagoo
 
 update = kastagoo.utils.update
 mkclass = kastagoo.utils.mkclass
