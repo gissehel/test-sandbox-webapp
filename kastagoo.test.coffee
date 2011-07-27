@@ -85,10 +85,9 @@ kastagoo.utils.update kastagoo,
                         if missing[fixture_name][method_name] != "__fixture__"
                             arglen = (method_name.replace(/[^_]/g,"").length)
                             if arglen > 0
-                                console.log("        "+method_name+" : ("+("arg"+x for x in [1..arglen]).join(", ")+") ->")
+                                console.log("        "+method_name+" : ("+("arg"+x for x in [1..arglen]).join(", ")+") -> return")
                             else 
-                                console.log("        "+method_name+" : () ->")
-                            console.log("            return")
+                                console.log("        "+method_name+" : () -> return")
                                     # console.log(["*check*",method_name,value_parts,expected_result])
             console.log("")
             if stats.fail > 0

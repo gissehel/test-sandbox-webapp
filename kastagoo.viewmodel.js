@@ -11,17 +11,13 @@
         __classinit__: function() {
           var property_name, set_basic_property;
           set_basic_property = function(dict, property_name) {
-            console.log(" dict[property_name] (property_name=[" + property_name + "],dict=[" + dict + "])");
             return dict[property_name] = function(data) {
               return dict._basic_property_.call(this, '_' + property_name, property_name, data);
             };
           };
-          console.log(["classinit: on"]);
           for (property_name in this.__class__.__basic_properties__) {
-            console.log(["classinit - property_name [" + property_name + "]"]);
             set_basic_property(this.__class__, property_name);
           }
-          console.log(["classinit: off"]);
         },
         __init__: function() {
           var property_name;

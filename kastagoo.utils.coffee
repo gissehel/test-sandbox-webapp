@@ -10,7 +10,7 @@ mkclass = (parent, dict) ->
     [parent,dict] = [null, parent] if not(dict?)
     if parent? and parent.__class__?
         parent = parent.__class__
-    console.log("parent : ["+parent+"]("+(if dict.__name__? then dict.__name__  else dict)+")")
+    # console.log("parent : ["+parent+"]("+(if dict.__name__? then dict.__name__  else dict)+")")
     
     if parent?
         parent_ctor = (() -> return)

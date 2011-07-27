@@ -18,7 +18,6 @@
     if ((parent != null) && (parent.__class__ != null)) {
       parent = parent.__class__;
     }
-    console.log("parent : [" + parent + "](" + (dict.__name__ != null ? dict.__name__ : dict) + ")");
     if (parent != null) {
       parent_ctor = (function() {});
       parent_ctor.prototype = parent;
